@@ -2,7 +2,7 @@ from typing import List
 
 def partition(arr, l, r):
     p, curr = l, l + 1
-    while curr < r:
+    while curr <= r:
         if arr[curr] <= arr[l]:
             p += 1
             arr[p], arr[curr] = arr[p], arr[curr]
@@ -14,7 +14,7 @@ def quick_sort(data, l, r) -> List[int]:
     if l < r:
         p = partition(data, l, r)
         quick_sort(data, l, p)
-        quick_sort(data, p, r)
+        quick_sort(data, p + 1, r)
     return data
 
 input_data = input()
