@@ -1,12 +1,14 @@
 from typing import List
 
 def partition(arr, l, r):
-    p, i = l, l
-    while i < r:
-        if arr[i] <= arr[p]:
-            arr[i], arr[p] = arr[p], arr[i]
+    p, curr = l + 1, l + 1
+    while curr < r:
+        if arr[curr] <= arr[l]:
+            arr[p], arr[curr] = arr[p], arr[curr]
             p += 1
-        i += 1
+        curr += 1
+    p -= 1
+    arr[p], arr[l] = arr[l], arr[p]
     return p
 
 def quick_sort(data, l, r) -> List[int]:
