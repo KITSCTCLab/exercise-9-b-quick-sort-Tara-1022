@@ -13,7 +13,7 @@ def partition(arr, l, r):
 def quick_sort(data, l, r) -> List[int]:
     if l < r:
         p = partition(data, l, r)
-        quick_sort(data, l, p)
+        quick_sort(data, l, p - 1)
         quick_sort(data, p + 1, r)
     return data
 
