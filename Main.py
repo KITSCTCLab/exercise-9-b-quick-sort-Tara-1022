@@ -1,20 +1,20 @@
 from typing import List
 
 def partition(arr, l, r):
-    p, curr = l + 1, l + 1
+    p, curr = l, l + 1
     while curr < r:
         if arr[curr] <= arr[l]:
-            arr[p], arr[curr] = arr[p], arr[curr]
             p += 1
+            arr[p], arr[curr] = arr[p], arr[curr]
         curr += 1
-    p -= 1
     arr[p], arr[l] = arr[l], arr[p]
     return p
 
 def quick_sort(data, l, r) -> List[int]:
-    p = partition(data, l, r)
-    quick_sort(data, l, p)
-    quick_sort(data, p, r)
+    if l < r:
+        p = partition(data, l, r)
+        quick_sort(data, l, p)
+        quick_sort(data, p, r)
     return data
 
 input_data = input()
